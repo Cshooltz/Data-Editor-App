@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://app/program/Program.cs" type="Script" id=1]
+[ext_resource path="res://resources/themes/Base_Theme.tres" type="Theme" id=2]
+[ext_resource path="res://app/program/SceneHandler.cs" type="Script" id=3]
+[ext_resource path="res://app/SystemMenu/MenuPanel.cs" type="Script" id=4]
+[ext_resource path="res://resources/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://app/jsoninspector/JSONInspector.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SceneHandler" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.168627, 0.168627, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AppHook" type="Control" parent="."]
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.90735e-06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Control" parent="AppHook"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AppHook/Start"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -161.5
+margin_top = -40.5
+margin_right = 161.5
+margin_bottom = 40.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AppHook/Start/VBoxContainer"]
+margin_right = 345.0
+margin_bottom = 50.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+text = "Hello!"
+align = 1
+
+[node name="Label2" type="Label" parent="AppHook/Start/VBoxContainer"]
+margin_top = 54.0
+margin_right = 345.0
+margin_bottom = 83.0
+text = "Please pick a program to run using the Menu"
+align = 1
+
+[node name="JSONInspector" parent="AppHook" instance=ExtResource( 6 )]
+anchor_left = -0.000976563
+anchor_top = -0.00173611
+anchor_right = 0.999023
+anchor_bottom = 0.998264
+margin_bottom = -1.0
+
+[node name="SystemMenuHook" type="Node" parent="."]
+
+[node name="MenuPanel" type="Panel" parent="SystemMenuHook"]
+anchor_right = 1.0
+margin_top = -0.840881
+margin_bottom = 24.1591
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuHBox" type="HBoxContainer" parent="SystemMenuHook/MenuPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="MenuButton" parent="SystemMenuHook/MenuPanel/MenuHBox"]
+margin_right = 54.0
+margin_bottom = 29.0
+theme = ExtResource( 2 )
+text = "Menu"
+items = [ "Programs", null, 0, false, true, 0, 0, null, "", false, "", null, 0, false, true, 1, 0, null, "", true, "Http Download", null, 0, false, false, 2, 0, null, "", false, "JSON Inspector", null, 0, false, false, 3, 0, null, "", false ]
+switch_on_hover = true
+
+[node name="PrintMenuChildren" type="Button" parent="SystemMenuHook/MenuPanel/MenuHBox"]
+visible = false
+margin_left = 58.0
+margin_right = 218.0
+margin_bottom = 29.0
+text = "Print Menu Children"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OverlayHook" type="Node" parent="."]
+[connection signal="pressed" from="SystemMenuHook/MenuPanel/MenuHBox/PrintMenuChildren" to="SystemMenuHook/MenuPanel" method="_OnPrintMenuChildren"]

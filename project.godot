@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Data Editor"
+run/main_scene="res://app/program/Program.tscn"
+run/low_processor_mode=true
+config/icon="res://icon.png"
+
+[display]
+
+window/dpi/allow_hidpi=true
+window/vsync/use_vsync=false
+window/handheld/orientation="sensor_portrait"
+
+[gui]
+
+theme/use_hidpi=true
+theme/custom="res://resources/themes/Base_Theme.tres"
+theme/custom_font="res://resources/fonts/Roboto_Regular 17.tres"
+
+[input]
+
+mouse_left_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+mouse_right_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[mono]
+
+profiler/enabled=true
+
+[rendering]
+
+threads/thread_model=2
+environment/default_environment="res://default_env.tres"

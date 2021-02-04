@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://app/htmldownload/HtmlDownload.cs" type="Script" id=1]
+[ext_resource path="res://resources/themes/Base_Theme.tres" type="Theme" id=2]
+
+[node name="HtmlDownload" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -47.6591
+margin_top = -39.9439
+margin_right = 49.3409
+margin_bottom = 38.0561
+split_offset = 1
+dragger_visibility = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "Container for Hello World button."
+}
+
+[node name="Button" type="Button" parent="VSplitContainer"]
+margin_right = 97.0
+margin_bottom = 28.0
+theme = ExtResource( 2 )
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VSplitContainer"]
+margin_top = 55.0
+margin_right = 97.0
+margin_bottom = 74.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 99.8409
+margin_top = 54.2152
+margin_right = 288.841
+margin_bottom = 143.215
+theme = ExtResource( 2 )
+text = "Start Download"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VSplitContainer/Button" to="." method="_OnButtonPressed"]
+[connection signal="pressed" from="Button" to="." method="_OnStartDownload"]
