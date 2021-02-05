@@ -2,7 +2,7 @@
 # Data Editor App
 The purpose of this project is for me to gain practical experience writing a graphical application of my own design from scratch. My intent for this application is to create a simple data editor that will allow the user to view data sets, make their own, and then submit their data to be stored in either a file, database server, or embedded database. Additionally, I decided that I want this application to be deployable cross-platform and rely as much as possible on open source software. While I am currently focusing on this as a desktop app, I plan to eventually adapt it to a mobile app to get mobile app development experience.
 
-This project is largely for educational purposes, so feel free to look around the code or even download it and try to run it yourself. To run the project, you will need to download the Mono version of Godot 3.2 from [GodotEngine.org](https://godotengine.org/) as well as the listed prequisits. 
+This project is largely for educational purposes, so feel free to look around the code or even download it and try to run it yourself. To run the project, you will need to download the Mono version of Godot 3.2 from [GodotEngine.org](https://godotengine.org/) as well as the listed prerequisites. 
 
 ## App Feature Goals
 The following is a list of my target features for this project and the status of each:
