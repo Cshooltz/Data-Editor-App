@@ -5,9 +5,17 @@ The purpose of this project is for me to gain practical experience writing a gra
 
 ## App Feature Goals
 The following is a list of my target features for this project and the status of each:
-- Implement table UI element for displaying and editing data - **In Progress**, currently cannot save data that is entered, but otherwise works
+- Table UI element for displaying and editing data - **In Progress**, currently cannot save data that is entered, but otherwise works
   - Future goal: reimplement table UI as custom Godot node with custom drawing code. Current version is node heavy and inefficient. Also format is unappealing.
-- Implement text viewer so user can view serialized versions of data objects - **Complete**
+- Text viewer so user can view serialized versions of data objects - **Complete**
 - Allow user to select file to save serialized data to and load data from - **In Progress**, currently can enter file name to save and load from. 
-- Implement embedded file manager so the user can visually browse and edit files - **In Progress**, see sub-points for details [See app/filesystem](app/filesystem)
-  - Implement backing data structure for tracking user opened directories and synchronization of filesystem state with OS - **complete** [See FSViewTree.cs](app/filesystem/FSViewTree.cs)
+- Embedded file manager so the user can visually browse and edit files - **In Progress**, see sub-points for details, Code: [app/filesystem](app/filesystem)
+  - Backing data structure for tracking user opened directories and synchronization of filesystem state with OS - **complete** Code: [FSViewTree.cs](app/filesystem/FSViewTree.cs)
+  - UI element for displaying directory tree - **complete** Code: [FileSystem.cs](app/filesystem/FileSystem.cs)/[FileSystem.tscn](app/filesystem/FileSystem.tscn)
+  - UI for directory navigation - **In Progress**
+  - Backend for file operations - **In Progress**
+  - UI for file operations - **In Progress**
+  - Threading strategy to delegate file operations to separate thread(s) - **Complete**, I implemented 3 options for my scenario: a dedicated worker thread (using System.Threading), a queue based system using Task.ContinueWith(), and a non-queue based system that uses plain Tasks and mutexes to ensure critical code sections can't interfere with eachother. I encaspulated the first two options in classes found in [library/Threading](library/Threading).
+- UI for database selector - **Not Started**
+- UI for database viewer - **Not Started**
+- UI for editing database entries (tables, etc), loading entries, and saving back to the database - **Not Started**
