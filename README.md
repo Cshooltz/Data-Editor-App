@@ -1,7 +1,9 @@
 **Disclaimer:** This project is very, VERY, work in progress and is also a test ground for my own experimentation with code, so expect some messiness at this time. I actively work on this project and intend to update it on Github semi-regularly, so expect significant changes over time as well.
 # Data Editor App
 ## Overview
-The purpose of this project is for me to gain practical experience writing a graphical application of my own design from scratch. My intent for this application is to create a simple data editor that will allow the user to view data sets, make their own, and then submit their data to be stored in either a file, database server, or embedded database. Additionally, I decided that I want this application to be deployable cross-platform and rely as much as possible on open source software as possible. While I am currently focusing on this as a desktop app, I plan to eventually plan on adapting it to a mobile app to get mobile app development experience.
+The purpose of this project is for me to gain practical experience writing a graphical application of my own design from scratch. My intent for this application is to create a simple data editor that will allow the user to view data sets, make their own, and then submit their data to be stored in either a file, database server, or embedded database. Additionally, I decided that I want this application to be deployable cross-platform and rely as much as possible on open source software. While I am currently focusing on this as a desktop app, I plan to eventually adapt it to a mobile app to get mobile app development experience.
+
+This project is largely for educational purposes, so feel free to look around the code or even download it and try to run it yourself. To run the project, you will need to download the Mono version of Godot 3.2 from [GodotEngine.org](https://godotengine.org/) as well as the listed prequisits. 
 
 ## App Feature Goals
 The following is a list of my target features for this project and the status of each:
@@ -19,3 +21,14 @@ The following is a list of my target features for this project and the status of
 - UI for database selector - **Not Started**
 - UI for database viewer - **Not Started**
 - UI for editing database entries (tables, etc), loading entries, and saving back to the database - **Not Started**
+
+## Technology Stack
+For this project I chose C#/.Net (Mono) as my primary platform, since I personally love C# and .Net and want to gain more experience with it. To the end of making a cross platform GUI app, however, I found my options with .Net to be fairly disappointing. After a lot of research, I decided to use a game engine for my UI as well as some cross platform functionality. The game engine I chose for this project is Godot, since it is robust, small, and open source. I could have also used Unity, but Unity feels bloated for this scale of project and is proprietary. 
+
+My decision to use Godot for the UI has had a strong impact on the architecture of this application. If you are viewing the project from a background in .Net development and haven't used Godot before, the application structure probably looks alien to you. Because I am using Godot, this application is actually a Godot application (which itself is a C++ application), *not* a .Net application. The Mono runtime is used by the Godot runtime to execute compiled C# code as scripts, but Godot doesn't actually care what the scripts are written in as long as the module used comforms to Godot's scripting API. 
+
+In Godot, execution of user code actually starts in the scene tree. Scenes in Godot are collections of specialized objects called nodes. The structure of a scene is defined by its scene (.tscn) file, which tells Godot what nodes and resources to load when loading the scene. The process is similar to how a HTML file tells your browser what elements and resources to load when loading a web page. The combination of the built-in functionality of the different node types and scripts the user attaches to the nodes defines the behavior of the application.
+
+The execution of my code in this project relies almost exclusively on initialization code (overriding the virtual `_ready()` function) and Godot signals (events), which allows Godot to suspend updating the UI when the user is not interacting with it. The UI itself is almost entirely hand-built using Godot's UI nodes (nodes that inherit from the Control class). 
+
+Outside of Godot, I rely on Nuget packages for implementing common functionality. For example, I use Newtonsoft's Json.NET library for JSON parsing and serialization. I have also created a namespace for my personal non-application-specific code library, which I have dubbed SparkLib. 
