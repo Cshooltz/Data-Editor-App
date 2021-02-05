@@ -18,6 +18,7 @@ The following is a list of my target features for this project and the status of
   - Backend for file operations - **In Progress**
   - UI for file operations - **In Progress**
   - Threading strategy to delegate file operations to separate thread(s) - **Complete**, I implemented 3 options for my scenario: a dedicated worker thread (using System.Threading), a queue based system using Task.ContinueWith(), and a non-queue based system that uses plain Tasks and mutexes to ensure critical code sections can't interfere with eachother. I encaspulated the first two options in classes found in [library/Threading](library/Threading).
+- Backend for database connections - **Not Started**
 - UI for database selector - **Not Started**
 - UI for database viewer - **Not Started**
 - UI for editing database entries (tables, etc), loading entries, and saving back to the database - **Not Started**
@@ -32,3 +33,10 @@ In Godot, execution of user code actually starts in the scene tree. Scenes in Go
 The execution of my code in this project relies almost exclusively on initialization code (overriding the virtual `_ready()` function) and Godot signals (events), which allows Godot to suspend updating the UI when the user is not interacting with it. The UI itself is almost entirely hand-built using Godot's UI nodes (nodes that inherit from the Control class). 
 
 Outside of Godot, I rely on Nuget packages for implementing common functionality. For example, I use Newtonsoft's Json.NET library for JSON parsing and serialization. I have also created a namespace for my personal non-application-specific code library, which I have dubbed SparkLib. 
+
+## Directory Structure
+- The `app` directory contains all of the application specific code and scene files. This is the meat of the program
+- I intend to use `docs` for supporting documentation for the application as needed, but I haven't used it yet. Might just remove it
+- `library` is where I am storing non-application specific code that I will potentially reuse accross applications
+- `resources` is for storing resources and assets. For this application, that will mostly just include fonts, icons, and themes. Note that in here you will see a lot of `*.import` verions of files. Those are used my Godot to keep track of the import settings for each asset.
+- `project.godot` is the file the defines this repository as a Godot project, and contains all relevant project-specific configuration settings 
