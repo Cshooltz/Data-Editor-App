@@ -37,5 +37,5 @@ Outside of Godot, I rely on Nuget packages for implementing common functionality
 - The `app` directory contains all of the application specific code and scene files. This is the meat of the program
 - I intend to use `docs` for supporting documentation for the application as needed, but I haven't used it yet. Might just remove it
 - `library` is where I am storing non-application specific code that I will potentially reuse accross applications
-- `resources` is for storing resources and assets. For this application, that will mostly just include fonts, icons, and themes. Note that in here you will see a lot of `*.import` versions of files. Those are used my Godot to keep track of the import settings for each asset.
+- `resources` is for storing resources and assets. For this application, that will mostly just include fonts, icons, and themes. Note that in here you will see a lot of `*.import` versions of files. Those are used by Godot to keep track of the import settings for each asset.
 - `project.godot` is the file the defines this repository as a Godot project, and contains all relevant project-specific configuration settings 
