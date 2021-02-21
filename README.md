@@ -18,7 +18,7 @@ The following is a list of my target features for this project and the status of
     - Initial implementation for moving files completed
   - UI for file operations - **In Progress**
     - Initial system for drag and drop to move files implemented
-  - Threading strategy to delegate file operations to separate thread(s) - **Complete**, I implemented 3 options for my scenario: a dedicated worker thread (using System.Threading), a queue based system using Task.ContinueWith(), and a non-queue based system that uses plain Tasks and mutexes to ensure critical code sections can't interfere with eachother. I encaspulated the first two options in classes found in [library/Threading](library/Threading).
+  - Threading strategy to delegate file operations to separate thread(s) - **Complete**, I implemented 3 options for my scenario: a dedicated worker thread (using System.Threading), a queue based system using Task.ContinueWith(), and a non-queue based system that uses plain Tasks and mutexes to ensure critical code sections can't interfere with eachother. I encapsulated the first two options in classes found in [library/Threading](library/Threading).
 - Backend for database connections - **Not Started**
 - UI for database selector - **Not Started**
 - UI for database viewer - **Not Started**
