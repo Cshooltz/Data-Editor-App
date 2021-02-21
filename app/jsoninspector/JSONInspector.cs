@@ -45,8 +45,6 @@ public class JSONInspector : Control
         GD.Print($"Current Dir: {FileDirectory.GetCurrentDir()}");
         if (FileDirectory.Open("user://") == Error.Ok) GD.Print("user:// opened successfully");
 
-
-
         return;
     }
 

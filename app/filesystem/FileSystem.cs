@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using SparkLib;
 
-public class FileSystem : Panel
+public partial class FileSystem : Panel
 {
     /*
         Custom FileSystem Control for Godot.
@@ -28,6 +28,10 @@ public class FileSystem : Panel
     public string path = "user://";
     protected System.Collections.Generic.Dictionary<TreeItem, FSViewTree.Node> FSAssocList
         = new System.Collections.Generic.Dictionary<TreeItem, FSViewTree.Node>();
+    public System.Collections.Generic.Dictionary<TreeItem, FSViewTree.Node> GetFSAssocList()
+    {
+        return FSAssocList;
+    }
     private WorkQueueThread workerThread = new WorkQueueThread();
     private WorkQueueTask workerTask = new WorkQueueTask();
 
@@ -88,6 +92,7 @@ public class FileSystem : Panel
 
         while (scanning)
         {
+
             if (currentCounter[0] <= currentCounter[1])
             {
                 FSViewTree.DirNode currentFolder = workingDirNode.folders[currentCounter[0]];
@@ -97,7 +102,7 @@ public class FileSystem : Panel
                 if (currentFolder.isOpen) treeBuffer.Collapsed = false;
                 else treeBuffer.Collapsed = true;
 
-                if (currentFolder.folders.Count > 0)
+                if (currentFolder.folders.Count > 0 || currentFolder.files.Count > 0)
                 {
                     counters.Push(currentCounter);
                     treeItemStack.Push(workingTreeItem);

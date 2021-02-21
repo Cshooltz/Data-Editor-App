@@ -319,7 +319,7 @@ public class FSViewTree
     // Custom Types for this class 
     public enum NodeType { folder, file }
 
-    public abstract class Node
+    public abstract class Node : Godot.Object
     {
         public readonly NodeType type;
         public DirNode? parent;
