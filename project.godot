@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -29,7 +28,7 @@ window/handheld/orientation="sensor_portrait"
 [gui]
 
 theme/use_hidpi=true
-theme/custom="res://resources/themes/Base_Theme.tres"
+theme/custom="res://resources/themes/Gray_Editor_Theme.tres"
 theme/custom_font="res://resources/fonts/Roboto_Regular 17.tres"
 
 [input]

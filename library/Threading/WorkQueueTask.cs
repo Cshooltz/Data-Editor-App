@@ -27,7 +27,7 @@ namespace SparkLib
         }
 
         // If you have arguments, use this version
-        public void EnqueueWork(Action task)
+        public Task EnqueueWork(Action task)
         {
             if (workTask == null)
             {
@@ -38,7 +38,7 @@ namespace SparkLib
             {
                 workTask.ContinueWith((antecedent) => task());
             }
-            return;
+            return workTask;
         }
     }
 }

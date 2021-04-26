@@ -138,5 +138,6 @@ script = SubResource( 2 )
 [connection signal="item_collapsed" from="FileSystemScroll/FileSystemList" to="." method="_OnFileSystemListItemCollapsed"]
 [connection signal="nothing_selected" from="FileSystemScroll/FileSystemList" to="." method="_OnFileSystemListNothingSelected"]
 [connection signal="focus_exited" from="ContextMenu" to="ContextMenu" method="_on_ContextMenu_focus_exited"]
+[connection signal="id_pressed" from="ContextMenu" to="." method="_OnContextMenuIDPressed"]
 [connection signal="popup_hide" from="ContextMenu" to="." method="_OnContextMenuPopupHide"]
 [connection signal="visibility_changed" from="ContextMenu" to="ContextMenu" method="_on_ContextMenu_visibility_changed"]
