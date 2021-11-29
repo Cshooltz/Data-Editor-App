@@ -1,4 +1,4 @@
-**Disclaimer:** This project is very, VERY, work in progress and is also a test ground for my own experimentation with code, so expect some messiness at this time. I actively work on this project and intend to update it on GitHub semi-regularly, so expect significant changes over time as well.
+**Disclaimer:** This project is very unfinished and as of early 2021 is now depreciated. I've moved onto using Flutter as my main framework for application development, see my other projects to see what I am actively working on.
 # Data Editor App
 The purpose of this project is for me to gain practical experience writing a graphical application of my own design from scratch. My intent for this application is to create a simple data editor that will allow the user to view data sets, make their own, and then submit their data to be stored in either a file, database server, or embedded database. Additionally, I decided that I want this application to be deployable cross-platform and rely as much as possible on open source software. While I am currently focusing on this as a desktop app, I plan to eventually adapt it to a mobile app to get mobile app development experience.
 
